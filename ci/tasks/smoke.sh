@@ -5,7 +5,7 @@ sleep 10;
 i=0
 
 while [[ $i -ne 10 ]]; do
-	code=`curl -LI http://demo-onlinestore-user-temp.local.pcfdev.io -o /dev/null -w '%{http_code}\n' -s`;
+	code=`curl -LI http://demo-onlinestore-user-temp.local.pcfdev.io/login -o /dev/null -w '%{http_code}\n' -s`;
 	if [[ ${code} = "200" ]]; then
 	    echo ${code};
 		echo "ok";
