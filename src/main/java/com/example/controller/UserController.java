@@ -27,6 +27,6 @@ public class UserController {
 	@RequestMapping("/v")
 	@HystrixCommand
 	public String showVersion() {
-		return "v4";
+		return "v5";
 	}	
 }
