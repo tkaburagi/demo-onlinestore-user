@@ -23,4 +23,10 @@ public class UserController {
 //		return repo.findAll();
 		return repo.findByName(name);
 	}
+
+	@RequestMapping("/v")
+	@HystrixCommand
+	public String showVersion() {
+		return "v1";
+	}	
 }
