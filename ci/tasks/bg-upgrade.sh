@@ -28,7 +28,7 @@ echo "Removing previous main app route that pointed to $CURRENT_APP_HOSTNAME ins
 sleep 30; #for demo
 
 set +e
-cf unmap-route $CURRENT_APP_NAME $app_domain --hostname $app_preffix
+cf unmap-route $CURRENT_APP_NAME $app_domain --hostname prd-$app_preffix
 cf unmap-route $NEXT_APP_NAME $app_domain --hostname $app_preffix-temp
 set -e
 
