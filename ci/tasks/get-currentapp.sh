@@ -11,7 +11,7 @@ cf apps
 
 set +e
 
-cf apps | grep $app_preffix | grep green
+cf apps | grep prd-$app_preffix | grep green
 
 if [ $? -eq 0 ]
 then
