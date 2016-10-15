@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sleep 10
+sleep 10;
 
 i=0
 
