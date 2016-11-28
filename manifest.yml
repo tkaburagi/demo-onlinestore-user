@@ -8,7 +8,7 @@ applications:
    - service-registry
    - mysql
    - circuit-breaker
-  buildpack: java_buildpack
+  buildpack: java_buildpack_offline
   env:
    SPRING_PROFILES_ACTIVE: cloud 
    #CF_TARGET: https://api.local.pcfdev.io
