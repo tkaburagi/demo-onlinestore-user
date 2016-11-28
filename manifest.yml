@@ -4,7 +4,6 @@ applications:
   host: demo-onlinestore-user-temp
   memory: 800M
   instances: 1
-  path: ./target/demo-onlinestore-user-0.0.1-SNAPSHOT.jar
   services:
    - service-registry
    - mysql
@@ -12,4 +11,6 @@ applications:
   buildpack: java_buildpack
   env:
    SPRING_PROFILES_ACTIVE: cloud 
-   CF_TARGET: https://api.local.pcfdev.io
+   #CF_TARGET: https://api.local.pcfdev.io
+   CF_TARGET: https://api.run.haas-70.pez.pivotal.io
+   VERSION: 1

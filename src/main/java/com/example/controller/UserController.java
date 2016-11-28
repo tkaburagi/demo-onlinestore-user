@@ -25,16 +25,17 @@ public class UserController {
 	@RequestMapping("/login")
 	@HystrixCommand
 	public Users getOneUser(@RequestParam("name") String name) {
-//		return repo.findAll();
 		return repo.findByName(name);
 	}
 	
 	@RequestMapping("/getinstance")
 	public String getInstance() throws JsonProcessingException, IOException {
+		String version = System.getenv("VERSION");
+		
 		String vcap = System.getenv("VCAP_APPLICATION");
 		ObjectMapper mapper = new ObjectMapper();
 		JsonNode vcap_app = mapper.readTree(vcap);
-		return vcap_app.get("instance_index").asText();
+		return "User App = " + vcap_app.get("instance_index").asText() + " (version = " + version+ ")";
 	}
 
 	@RequestMapping("/v")
