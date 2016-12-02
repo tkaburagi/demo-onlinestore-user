@@ -43,4 +43,23 @@ public class UserController {
 	public String showVersion() {
 		return System.getenv("VERSION");
 	}	
+
+	@HystrixCommand
+	@RequestMapping("/kill")
+	public String kill() {
+		System.exit(-1);
+		return "killed!";
+	}
+	
+	@RequestMapping("/getlocalinfo")
+	public String[] getLocalInfo() throws JsonProcessingException, IOException {
+		String vcap = System.getenv("VCAP_APPLICATION");
+		ObjectMapper mapper = new ObjectMapper();
+		JsonNode vcap_app = mapper.readTree(vcap);
+		String[] list = new String[3];
+		list[0] = System.getenv("CF_INSTANCE_ADDR");
+		list[1] = System.getenv("VERSION");
+		list[2] = vcap_app.get("instance_index").asText();
+		return list;
+	}
 }
